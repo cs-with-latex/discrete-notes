@@ -1,0 +1,336 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage{listings} 
+\usepackage{xcolor} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newtheorem{definition}{定义}
+\newtheorem{theorem}{定理}
+\newtheorem{proof}{证明}
+\newtheorem{lemma}{引理}
+\lstset{
+  basicstyle=\tt,
+  keywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{brown!80!black},
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  numbers=left,                
+  numberstyle=\small,               
+}
+\title{大学语文下册速记}
+\author{5eqn}
+\date{\today}
+\begin{document}
+  \maketitle
+  \section{图}
+    \begin{definition}
+      任取$A$和$B$中的一个元素构成集合的全部可能性为无序积,
+      记为$A\&B$. 其中无序对$\left\{a,b\right\}$简写为$\left(a,b\right)$,
+      无序对$\left\{a\right\}$简写为$\left(a,a\right)$.
+    \end{definition}
+    \begin{definition}
+      顶点数是图的阶.
+    \end{definition}
+    \begin{definition}
+      没有边的图是零图.
+    \end{definition}
+    \begin{definition}
+      $1$阶零图$N_1$是平凡图.
+    \end{definition}
+    \begin{definition}
+      空图是没有顶点的图, 记为$\varnothing$.
+    \end{definition}
+    \begin{definition}
+      每个顶点和边有指定代号的图是标定图.
+    \end{definition}
+    \begin{definition}
+      有向图的基图是把所有边变成无向得到的图,
+      注意双向边要看作两条边, 其基图含平行边.
+    \end{definition}
+    \begin{definition}
+      环是一个点连它自己.
+    \end{definition}
+    \begin{definition}
+      点的邻域是和点相邻的点, 记为$N_G\left(v\right)$.
+    \end{definition}
+    \begin{definition}
+      闭邻域是不包括自己的邻域, 记为$\overline{N}_G\left(v\right)$.
+    \end{definition}
+    \begin{definition}
+      点的关联集是和点相邻的边, 记为$I_G\left(v\right)$.
+    \end{definition}
+    \begin{definition}
+      点的后继元集是从点出发走一步能到的点, 记为$\Gamma^{+}_D\left(v\right)$.
+    \end{definition}
+    \begin{definition}
+      平行边是起点相同且终点相同的边.
+    \end{definition}
+    \begin{definition}
+      含平行边的图是多重图, 不含平行边并且没环的图是简单图.
+    \end{definition}
+    \begin{definition}
+      $v$作为边的端点的次数是度数$d_G\left(v\right)$.
+      作为边的始点的次数是出度$d^{+}_D\left(v\right)$.
+      有向图的度数是出度和入度之和.
+    \end{definition}
+    \begin{definition}
+      最大度是所有点度数的最大值, 记为$\Delta\left(G\right)$.
+      最小度则是最小值, 记为$\delta\left(G\right)$.
+      最大出度记为$\Delta^{+}\left(G\right)$.
+    \end{definition}
+    \begin{definition}
+      度数为$1$的顶点是悬挂顶点, 其关联边是悬挂边.
+    \end{definition}
+    \begin{definition}
+      每个顶点的度数组成数列是度数列,
+      由度数列可还原图则称度数列可图化,
+      类似地还有可简单图化, 出度列和入度列的概念.
+    \end{definition}
+    \begin{definition}
+      通过修改点的编号能让一个图变成另一个图,
+      那么这两个图同构, 记为$G_1 \cong G_2$.
+    \end{definition}
+    \begin{definition}
+      竞赛图是基图为无向完全图的有向图.
+    \end{definition}
+    \begin{definition}
+      每个点的度数都是$k$的无向简单图是$k$-正则图.
+    \end{definition}
+    \begin{definition}
+      图$G$去掉一些点$V-V_1$会得到$V_1$导出的子图$G[V_1]$,
+      去掉一些边$E-E_1$会得到$E_1$导出的子图$G[E_1]$.
+    \end{definition}
+    \begin{definition}
+      让图所有可能形成边的成边情况反转, 就得到了其补图, 记为$\overline{G}$.
+      补图和自身同构的是自补图.
+    \end{definition}
+    \begin{definition}
+      $e$的收缩即把$e$和关联的两个顶点共同视为一个顶点, 记为$G\setminus e$.
+    \end{definition}
+    \begin{definition}
+      无向标定图中, 顶点和关联边的交替序列是通路, 记为$\Gamma$.
+      边的数量是长度, 从始点开始, 终点结束.
+      如果始点和终点相同, 那么这个通路是回路.
+      如没有重复边, 那么$\Gamma$是简单通路, 否则是复杂通路.
+      在此基础上如果没有重复顶点, 那么$\Gamma$是初级通路或路径.
+      如果是回路, 那么$\Gamma$是初级回路或圈.
+    \end{definition}
+    \begin{definition}
+      如果$u$和$v$之间存在通路, 那么称它们是连通的, 记为$u\sim v$.
+    \end{definition}
+    \begin{definition}
+      设$V_i$是联通关系的一个等价类, 那么$G[V_i]$是$G$的一个连通分支,
+      其连通分支数为$p\left(G\right)$.
+    \end{definition}
+    \begin{definition}
+      若$u\sim v$, 那么$u$和$v$之间长度最短的通路为短程线,
+      短程线的长度是$u$和$v$之间的距离, 记为$d \left(u, v\right)$.
+      若不连通, 那么$d \left(u, v\right)=\infty$.
+    \end{definition}
+    \begin{definition}
+      点割集是极小的去掉后能让$p\left(G\right)$降低的点集,
+      如果只有一个元素, 那么元素是割点.
+      同理定义边割集或割集和割边或桥.
+    \end{definition}
+    \begin{definition}
+      最小点割集阶数为点连通度或连通度$\kappa\left(G\right)$.
+      只要$\kappa\left(G\right)>k$, 那么$G$就是$k$-连通图.
+      按照相似的方法可以定义边连通度$\lambda\left(G\right)$,
+      以及$r$边-连通图.
+    \end{definition}
+    \begin{definition}
+      基图是连通图的有向图是弱连通图或连通图.
+      两个点至少一个方向连通则是单向连通图,
+      全部连通则是强连通图.
+    \end{definition}
+    \begin{definition}
+      极大路径是不能通过首尾加点来延长的路径.
+    \end{definition}
+    \begin{definition}
+      二部图或二分图或偶图中,
+      每条边一定从一个点集到另一个点集,
+      这两个点集是整个点集的一个划分.
+      简单二部图$G$中$V_1$中每个顶点和$V_2$中所有顶点相邻,
+      那么$G$是完全二部图.
+    \end{definition}
+    \subsection{图的表示}
+      \begin{definition}
+        可以根据每个顶点和每个边的关联次数做出关联矩阵$M\left(G\right)$.
+      \end{definition}
+      \begin{definition}
+        可以根据每个顶点和其他顶点的关联次数做出邻接矩阵$A\left(G\right)$.
+      \end{definition}
+    \subsection{图的运算}
+      \begin{definition}
+        环和$G_1\oplus G_2$是用边的对称差定义的.
+      \end{definition}
+    \subsection{欧拉图和哈密顿图}
+      \begin{definition}
+        走过所有边的通路是欧拉通路,
+        回路则是欧拉回路,
+        有欧拉回路的图是欧拉图,
+        有欧拉通路但没有欧拉回路的则是半欧拉图.
+      \end{definition}
+      \begin{definition}
+        把走过所有边换成走过所有顶点就能得到哈密顿通路等定义.
+      \end{definition}
+    \subsection{带权图}
+      \begin{definition}
+        每个边对应权$W\left(e\right)$的图是带权图.
+      \end{definition}
+      \begin{definition}
+        路径上所有边权之和为长度$W\left(P\right)$.
+      \end{definition}
+      \begin{definition}
+        Dijkstra 算法是通过动态规划求最短路的算法,
+        可以用来解决中国邮递员问题.
+      \end{definition}
+  \section{树}
+    \begin{definition}
+      图$G$中不在生成树$T$上的边是弦,
+      所有弦的导出子图是$T$的余树$\overline{T}$.
+    \end{definition}
+    \begin{definition}
+      每个弦会对应一个回路, 被称作基本回路或基本圈.
+      所有基本圈组成基本回路系统, 其数量为圈秩$\xi\left(G\right)$.
+      以每个元素为基, 就得到了广义回路空间.
+    \end{definition}
+    \begin{definition}
+      每个树枝会对应一个割集, 仿照上述定义得到基本割集,
+      基本割集系统, 割集秩$\eta\left(G\right)$和广义割集空间.
+    \end{definition}
+    \begin{definition}
+      Kruskal 算法是通过贪心求最小生成树的算法.
+    \end{definition}
+    \begin{definition}
+      菊花有向树是根树,
+      有入度有出度的点是内点,
+      内点和树根都是分支点,
+      $v$的层数是根到$v$的路径长度,
+      最大长度就是树高.
+    \end{definition}
+    \begin{definition}
+      Huffman 算法是通过贪心求最优二叉树的算法.
+    \end{definition}
+  \section{平面图}
+    \begin{definition}
+      把平面图画出的无边相交的图是平面嵌入.
+    \end{definition}
+    \begin{definition}
+      面的边界的长度是面的次数, 记为$\mathrm{deg}\left(R\right)$.
+    \end{definition}
+    \begin{definition}
+      平面图加任何一条边都不是平面图, 那么其为极大平面图.
+      仿照该定义可以得出极小非平面图的定义.
+    \end{definition}
+    \begin{definition}
+      把一条边$e$变成路径$e_1ve_2$是插入二度顶点$v$.
+      逆向过程是消去二度顶点$v$.
+      如果能通过$0$或更多次上述操作让两个图同构,
+      那么这两个图同胚.
+    \end{definition}
+    \begin{definition}
+      Kuratowski 定理一即, 
+      $G$是平面图当且仅当$G$中不含与$K_5$或$K_{3,3}$同胚的子图.
+      把``与同胚''改成``可以收缩到'', 就得到了定理二.
+    \end{definition}
+    \begin{definition}
+      点面调换得到对偶图.
+      和对偶图同构的图是自对偶图.
+    \end{definition}
+    \begin{definition}
+      轮子形状的阶数为$n$的图是$n$阶轮图, 记为$W_n$.
+    \end{definition}
+  \section{支配覆盖独立}
+    \subsection{支配集}
+      \begin{definition}
+        从支配集这一顶点集出发, 走一步能覆盖所有顶点.
+      \end{definition}
+      \begin{definition}
+        极小支配集的任何真子集都不是支配集.
+        最小支配集是顶点数最少的支配集,
+        顶点个数为支配数$\gamma_0\left(G\right)$.
+      \end{definition}
+    \subsection{独立集}
+      \begin{definition}
+        点独立集或独立集任何两个顶点不相邻.
+      \end{definition}
+      \begin{definition}
+        极大和最大仿照前面定义,
+        最大点独立集顶点数是点独立数$\beta_0\left(G\right)$.
+      \end{definition}
+      \begin{definition}
+        边独立集或匹配中, 任何两条边不相邻.
+      \end{definition}
+      \begin{definition}
+        最大匹配的边数是边独立数或匹配数$\beta_1\left(G\right)$.
+      \end{definition}
+      \begin{definition}
+        匹配中的边是匹配边, 其他边是非匹配边.
+      \end{definition}
+      \begin{definition}
+        和匹配边关联的点是饱和点, 其他点是非饱和点.
+        没有非饱和点的匹配是完美匹配.
+      \end{definition}
+      \begin{definition}
+        匹配边和非匹配边构成交错路径,
+        其中起点和重点都不饱和的交错路径是可增广的交错路径,
+        因为可以以此重新构造更接近完美的匹配.
+      \end{definition}
+      \begin{theorem}
+        $\alpha_1+\beta_1=n$.
+      \end{theorem}
+      \begin{definition}
+        二部图中存在匹配使得点数较少的一方全部饱和,
+        则这个匹配是完备匹配.
+      \end{definition}
+      \begin{theorem}
+        Hall 定理或相异性条件:
+        存在完备匹配即任取$k$, 
+        $V_1$中任意$k$个顶点至少与$V_2$中$k$个顶点相邻.
+      \end{theorem}
+      \begin{theorem}
+        $t$条件:
+        如果存在$t$使得$V_1$每个顶点至少关联$t$条边,
+        但$V_2$每个顶点至多关联$t$条边,
+        那么存在$V_1$到$V_2$的完美匹配.
+      \end{theorem}
+    \subsection{覆盖集}
+      \begin{definition}
+        从点覆盖集或点覆盖出发, 走一步能覆盖所有边.
+      \end{definition}
+      \begin{definition}
+        最小点覆盖的顶点数是点覆盖数$\alpha_0\left(G\right)$.
+      \end{definition}
+      \begin{theorem}
+        $\alpha_0\left(G\right)+\beta_0\left(G\right)=n$.
+      \end{theorem}
+      \begin{definition}
+        从边覆盖集或边覆盖出发, 走一步就能覆盖所有点.
+      \end{definition}
+      \begin{definition}
+        最小边覆盖的顶点数是边覆盖数$\alpha_1\left(G\right)$.
+      \end{definition}
+  \section{着色}
+    \begin{definition}
+      如果$G$是$k$-可着色的, 但不是$k-1$-可着色的,
+      那么$G$的色数$\xi\left(G\right)=k$.
+    \end{definition}
+    \begin{theorem}
+      $\xi\left(G\right)\le \Delta\left(G\right)+1$.
+    \end{theorem}
+    \begin{theorem}
+      Brooks 定理:
+      若$G$不是完全图, 也不是奇圈,
+      那么$\xi\left(G\right)\le \Delta\left(G\right)$.
+    \end{theorem}
+    \begin{definition}
+      面色数$\xi^{*}\left(G\right)$是对偶图的色数.
+    \end{definition}
+    \begin{definition}
+      边色数$\xi^{\prime}\left(G\right)$是将点着色规则应用到边上的结果.
+    \end{definition}
+    \begin{theorem}
+      Vizing 定理:
+      简单图的边色数只能是$\Delta$或者$\Delta+1$.
+    \end{theorem}
+\end{document}

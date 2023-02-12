@@ -1,2 +1,8 @@
-# discrete-notes
-Notes on Discrete Math
+# 离散的笔记
+
+警告: 该笔记可能会有不恰当的省略,
+因为该笔记是 5eqn 在精神状况不佳的情况下打出来的.
+5eqn 可以不在意他的离散成绩,
+但你不一定可以.
+
+如果发现问题请及时报 issue (当然您也可以提交 pull request).
