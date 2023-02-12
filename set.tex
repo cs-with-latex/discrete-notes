@@ -1,0 +1,177 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage{listings} 
+\usepackage{xcolor} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\newtheorem{definition}{定义}
+\newtheorem{theorem}{定理}
+\newtheorem{proof}{证明}
+\newtheorem{lemma}{引理}
+\lstset{
+  basicstyle=\tt,
+  keywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{brown!80!black},
+  commentstyle=\color{gray},
+  showstringspaces=false,
+  numbers=left,                
+  numberstyle=\small,               
+}
+\title{大学语文上册速记}
+\author{5eqn}
+\date{\today}
+\begin{document}
+  \maketitle
+  \section{集合}
+    \begin{definition}
+      对称差集是两个集合的并集去掉交集.
+      \[
+      \begin{aligned}
+        A\oplus B=\left(A-B\right)\cup \left(B-A\right)
+      \end{aligned}
+      \]
+
+    \end{definition}
+    \begin{definition}
+      对于集合的非空集合, 广义交是集合内所有集合的交.
+      \[
+      \begin{aligned}
+        \cap A=\left\{x|\forall z, z\in A \to x\in z\right\}
+      \end{aligned}
+      \]
+      
+    \end{definition}
+    \begin{definition}
+      幂集$P\left(A\right)$是$A$的所有可能子集.
+    \end{definition}
+  \section{二元关系}
+    \begin{definition}
+      笛卡尔积将集合视为非确定性, 因此最终结果为两个集合的任意组合.
+      \[
+      \begin{aligned}
+        A\times B=\left\{\left<x, y\right>|x\in A \wedge y\in B\right\}
+      \end{aligned}
+      \]
+      
+    \end{definition}
+    \begin{definition}
+      空关系是不包含任何有序对的集合. 
+      全域关系$E_A$是所有可能的有序对.
+      恒等关系$I_A$是所有左右相同的有序对.
+      此外还有小于等于关系$L_A$,
+      整除关系$D_A$,
+      包含关系$R_\subseteq$.
+    \end{definition}
+    \begin{definition}
+      对于关系$R$, 
+      关系矩阵$M_R$是用$0$和$1$表示集合中两元素是否存在关系的矩阵.
+    \end{definition}
+    \begin{definition}
+      定义域$\mathrm{dom}R$是有序对所有第一元素构成的集合.
+      值域$\mathrm{ran}R$是有序对所有第二元素构成的集合.
+      域$\mathrm{fld}R=\mathrm{dom}R\cup \mathrm{ran}R$.
+    \end{definition}
+    \begin{definition}
+      $R$在$A$上的限制$R\upharpoonright A$是左侧涉及$A$的关系子集.
+      $A$在$R$下的像$R[A]$是$R\upharpoonright A$的值域.
+    \end{definition}
+    \subsection{闭包}
+      \begin{definition}
+        自反闭包$r\left(R\right)=R\cup R^{0}$,
+        对称闭包$s\left(R\right)=R\cup R^{-1}$,
+        传递闭包$t\left(R\right)=R\cup R^{2}\cup R^{3}\cup \ldots $.
+      \end{definition}
+      \begin{definition}
+        Warshall 算法求传递闭包通过每次计算式子前缀和来减小计算量. 
+        具体地, 这个算法将会依次计算$R$, $R+R^{2}$等.
+      \end{definition}
+    \subsection{等价关系}
+      \begin{definition}
+        如果$R$是自反对称传递的, 那么$R$是等价关系.
+        $x$等价于$y$记作$x\sim y$.
+      \end{definition}
+      \begin{definition}
+        $x$关于$R$的等价类$[x]_R$是非空集合$A$中所有满足$xRy$的元素.
+      \end{definition}
+      \begin{definition}
+        $A$关于$R$的商集$A / R$是$A$中所有可能的等价类.
+      \end{definition}
+      \begin{definition}
+        若$\pi$不含空集, $\cup \pi=A$, $\cap \pi=\varnothing $,
+        那么$\pi$是$A$的一个划分, $\pi$中的元素是$A$的划分块.
+      \end{definition}
+    \subsection{偏序关系}
+      \begin{definition}
+        如果$R$是自反反对称传递的, 那么$R$是偏序关系.
+        $x$``小于等于''$y$记作$x\preccurlyeq y$.
+      \end{definition}
+      \begin{definition}
+        $x\prec y$即$x\preccurlyeq y\wedge x\neq y$,
+        $x$与$y$可比即$x\preccurlyeq y\vee y\preccurlyeq x$.
+      \end{definition}
+      \begin{definition}
+        $\forall x,y\in A$, $x$与$y$可比, 那么$R$是全序关系或线序关系.
+      \end{definition}
+      \begin{definition}
+        集合$A$和$A$上的偏序关系$\preccurlyeq $的有序对是偏序集.
+      \end{definition}
+      \begin{definition}
+        如果$x\prec y$并且不存在$z\in A$使得$x\prec z\prec y$,
+        那么$y$覆盖$x$.
+        画哈斯图就是用覆盖关系画图, 保证被覆盖的在下面.
+      \end{definition}
+      \begin{definition}
+        最小元和所有元素可比且更小,
+        极小元和所有可比的元素相比更小.
+      \end{definition}
+      \begin{definition}
+        如果$B$中所有元素$x$满足$x\preccurlyeq y$,
+        那么$y$为$B$的上界.
+        所有$B$的上界组成的集合的最小元是最小上界或上确界.
+      \end{definition}
+  \section{函数}
+    \begin{definition}
+      对于定义域中任何一个元素$x$, 只存在唯一元素$y$使得$xFy$成立, 则$F$是函数.
+    \end{definition}
+    \begin{definition}
+      若$f:A\to B, A_1\subseteq A, B_1\subseteq B$,
+      $A_1$在$f$下的像$f\left(A_1\right)$,
+      是参数取$A_1$中的元素$x$时$f\left(x\right)$的所有可能取值.
+      $B_1$在$f$下的完全原像$f^{-1}\left(B_1\right)$,
+      是值取到$B_1$中的元素时参数的所有可能取值.
+    \end{definition}
+    \begin{definition}
+      对任意$A^{\prime}\subseteq A$, $A^{\prime}$的特征函数$\xi_{A^{\prime}}:A\to \left\{0, 1\right\}$用$0$和$1$表示元素是否在$A^{\prime}$中, 其定义如下:
+      \[
+      \begin{aligned}
+        \xi_{A^{\prime}}\left(a\right)=
+        \begin{cases}
+          1, &a\in A^{\prime}\\
+          0, &a\in A-A^{\prime}
+        \end{cases}
+      \end{aligned}
+      \]
+      
+    \end{definition}
+    \begin{definition}
+      $g\left(a\right)=[a]$是$A$到商集$A /R$的自然映射.
+    \end{definition}
+    \begin{definition}
+      如果存在$A$到$B$的双射函数, 那么$A$和$B$是等势的, 记为$A\approx B$.
+    \end{definition}
+    \begin{definition}
+      康托定理即
+      (1) $\mathbb{N}\not\approx \mathbb{R}$
+      (2) $\forall A, A\not\approx P\left(A\right)$.
+    \end{definition}
+    \begin{definition}
+      如果存在$A$到$B$的单射函数, 那么$B$优势于$A$, 记为$A\preccurlyeq\cdot B$.
+      在此基础上如果$A\not\approx B$, 那么$B$真优势于$A$, 记为$A\prec \cdot B$.
+    \end{definition}
+    \begin{definition}
+      自然数的集合定义中, 后继$n^{+}=n\cup \left\{n\right\}$.
+    \end{definition}
+    \begin{definition}
+      基数$\mathrm{card}A$在$A$有穷时为等势的自然数,
+      $\mathrm{card}\mathbb{N}=\aleph_0, \mathrm{card}\mathbb{R}=\aleph$.
+    \end{definition}
+\end{document}
